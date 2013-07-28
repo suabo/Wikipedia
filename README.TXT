@@ -1,4 +1,5 @@
 jQuery Plugin for Wikipedia
 ===========================
 
-See demo.html for more.
+See demo online:
+http://support.suabo.de/opensource/jquery-plugin-wikipedia
