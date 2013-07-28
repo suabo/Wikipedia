@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">        
+  <title>jQuery Wikipedia Plugin by Marcel Grolms - www.suabo.de</title>
+  <link rel="stylesheet" type="text/css" href="css/jquery.wikipedia.css">
+  <style>
+    body {font:12px Verdana;}
+    h1, h2 {background:#ddd;border-radius:5px;padding:5px 20px;}
+  </style>     
+</head>
+<body>
+  <h1>jQuery Wikipedia Plugin</h1>
+  jQuery Plugin zum einfachen nachladen von Daten aus Wikipedia über die Wikipedia API mittels JSON.<br>
+  Zum laden muss ein Wikipediaseitentitel übergeben werden. Über den zweiten Parameter können<br>
+  diverse Einstellungen für die Darstellung getroffen werden.<br>
+  <small>by Marcel Grolms - <a href="http://www.suabo.de">www.suabo.de</a> 2013</small><br>
+  <br>
+  <div style="border:1px dashed #666;padding:10px;width:600px;font-weight:bold;color:#666;">
+    Tipp:
+    Wenn Sie die Bilder nicht sehen können, liegt es daran, das Sie das Beispiel lokal geladen haben und die Bildpfade
+    von Wikipedia für die SSL verschlüsslung unabhängig mit "//" gesetzt wurden und daher nicht gefunden werden können.    
+  </div>
+  <br>
+  <h2>Nutzung des Plugins</h2>  
+  <pre class="desc">      
+$('#ContainerToLoadWikipediaContent').WikipediaWidget('Page Title', [{ 'showTitle': true, 
+                                                                       'maxThumbnails': 3, 
+                                                                       'cutFirstInfoTableRows': 4, 
+                                                                       'maxInfoTableRows': 8, 
+                                                                       'thumbMaxWidth': '180px', 
+                                                                       'thumbMaxHeight': '180px' 
+                                                                     }]);
+  </pre>
+  <h2>einfacher Aufruf ohne Optionen</h2>
+  <div id="demo1" class="wikipediaContainer"><div class="bg"></div></div>
+  Beispielcode:
+  <pre>
+    $('#demo1').WikipediaWidget('Stuttgart');
+    
+  </pre>  
+  <h2>Begrenzung der Thumbnails auf 6 erhöhen und keinen Titel anzeigen</h2>
+  <div id="demo2" class="wikipediaContainer"><div class="bg"></div></div>
+  Beispielcode:
+  <pre>
+    $('#demo2').WikipediaWidget('Albert Einstein', { 'showTitle' : false, 'maxThumbnails' : 6 });
+    
+  </pre>
+  <script src="js/jquery.min.js" ></script>
+  <script src="js/jquery.wikipedia.js" ></script>
+  <script>
+    $(document).ready(function() {
+      $('#demo1').WikipediaWidget('Stuttgart');
+      $('#demo2').WikipediaWidget('Albert Einstein', { 'showTitle' : false, 'maxThumbnails' : 6 });
+    });         
+  </script>
+</body>
+</html>

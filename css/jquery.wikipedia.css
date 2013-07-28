@@ -1,0 +1,25 @@
+.ajaxLoading {margin-top:50px;text-align:center;}    
+.wikipediaContainer {        
+  position:relative;
+  min-height:150px;
+  width:600px;
+  padding:10px;
+  border-radius:5px;
+  background:#ddd;
+}
+.wikipediaContainer .bg {
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  width:135px;
+  height:155px;
+  background: no-repeat url('http://upload.wikimedia.org/wikipedia/commons/3/30/Wikipedia_2.0-new_prototype.png');
+  opacity:0.3;
+}
+.wikipediaContainer .wikipediaTitle {text-align:center;height:30px;font:20px Verdana bold;border-radius:5px 5px 0 0;background:#fff;margin:-5px 0 10px 0;line-height:30px;}
+.wikipediaContainer .wikipediaLogo {width:150px;float:left;margin-right:20px;}
+.wikipediaContainer .wikipediaDescription {float:left;width:430px;}
+.wikipediaContainer ul.wikipediaThumbGallery {float:left;width:600px;list-style:none;padding:0;}
+.wikipediaContainer ul.wikipediaThumbGallery li {display:inline-block;float:left;margin:0 10px 10px 0;}
+.wikipediaContainer table.wikipediaInfoTable {float:left;width:600px;}
+.wikipediaContainer .clear {clear:both;}
