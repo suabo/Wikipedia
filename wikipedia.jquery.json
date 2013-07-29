@@ -1,0 +1,34 @@
+{
+  "name": "wikipedia",
+  "title": "jQuery Wikipedia",
+  "description": "jQuery plugin for loading Wikipedia Data.",
+  "keywords": [
+    "wikipedia",
+    "ajax"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "suabo and other contributors",
+    "url": "https://github.com/suabo/Wikipedia/blob/master/AUTHORS.txt"
+  },
+  "maintainers": [
+    {
+    "name": "Marcel Grolms",
+    "email": "grolms@suabo.de",
+    "url": "http://www.suabo.de"
+    }
+  ],
+  "licenses": [
+    {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "bugs": "https://github.com/suabo/Wikipedia/issues",
+  "homepage": "https://github.com/suabo/Wikipedia",
+  "docs": "http://support.suabo.de/opensource/jquery-plugin-wikipedia",
+  "download": "https://github.com/suabo/Wikipedia/archive/master.zip",
+  "dependencies": {
+  "jquery": ">=1.5"
+  }
+}
