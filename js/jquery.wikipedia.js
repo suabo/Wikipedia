@@ -1,5 +1,5 @@
 /* 
- *  jQuery Plugin - Wikipedia V1.0.0
+ *  jQuery Plugin - Wikipedia V1.0
  *  
  *  todo: add description here
  *  
@@ -7,43 +7,21 @@
  */ 
 $.fn.WikipediaWidget = function(wikipediaPage, options) {  
   //init defaults
-  var showTitle = true;
-  var maxThumbnails = 3;
-  var cutFirstInfoTableRows = 4;
-  var maxInfoTableRows = 8;
-  var thumbMaxWidth  = '180px'; 
-  var thumbMaxHeight = '180px';
+  var settings = {
+    showTitle: true,
+    maxThumbnails: 3,
+    cutFirstInfoTableRows: 4,
+    maxInfoTableRows: 8,
+    thumbMaxWidth : '180px',
+    thumbMaxHeight: '180px',
+    locale: 'de',
+  };
   
   //option handling
+  
   if(options != undefined) {
     //we got more options
-    $.each(options, function(option, value) {
-      switch(option) {
-        case "showTitle":
-          showTitle = value;
-        break;
-        
-        case "maxThumbnails":
-          maxThumbnails = value;
-        break;
-        
-        case "maxInfoTableRows":
-          maxInfoTableRows = value;
-        break;
-        
-        case "cutFirstInfoTableRows":
-          cutFirstInfoTableRows = value;
-        break;
-        
-        case "thumbMaxHeight":
-          thumbMaxHeight = value;
-        break;
-        
-        case "thumbMaxWidth":
-          thumbMaxWidth = value;
-        break;        
-      }
-    });
+    $.extend(settings, options);
   }
     
   //check if pagetitle ist set
@@ -52,7 +30,7 @@ $.fn.WikipediaWidget = function(wikipediaPage, options) {
   var wikiContainer = this;      
   wikiContainer.append('<div class="ajaxLoading"><img src="img/ajax-loader.gif"></div>');
   //get data.parse.images
-  $.getJSON('http://de.wikipedia.org/w/api.php?action=parse&format=json&callback=?', {page:wikipediaPage, prop:'text|images', uselang:'de'}, function(parsedata) {
+  $.getJSON('http://'+settings.locale+'.wikipedia.org/w/api.php?action=parse&format=json&callback=?', {page:wikipediaPage, prop:'text|images', uselang: settings.locale}, function(parsedata) {
     //remove loading image
     wikiContainer.find('.ajaxLoading').remove();
     //debug
@@ -60,7 +38,7 @@ $.fn.WikipediaWidget = function(wikipediaPage, options) {
     //drop text to div container
     var content = $(parsedata.parse.text["*"]).wrap('<div></div>').parent();                
     //insert title
-    if(showTitle) {
+    if(settings.showTitle) {
       wikiContainer.append('<div class="wikipediaTitle"></div>').find('.wikipediaTitle').html(parsedata.parse.title);
     }
     //get images of right side table
@@ -73,18 +51,18 @@ $.fn.WikipediaWidget = function(wikipediaPage, options) {
     //get thumbnail images
     var rightThumbnails = content.find('.thumb a.image img');
     wikiContainer.append('<ul class="wikipediaThumbGallery"></ul>');
-    //add maxThumbnails to main container
+    //add settings.maxThumbnails to main container
     $.each(rightThumbnails, function(index, Thumbnail) {
       //add thumb with thumbMaxHeight and thumbMaxWidth
-      if(index<maxThumbnails) wikiContainer.find('.wikipediaThumbGallery').append($(Thumbnail).removeAttr('srcset').removeAttr('height').removeAttr('width').css({'width': 'auto', 'height': 'auto', 'max-width': thumbMaxWidth, 'max-height': thumbMaxHeight}).wrap('<li class="wikipediaThumbnail"></li>').parent());  
+      if(index<settings.maxThumbnails) wikiContainer.find('.wikipediaThumbGallery').append($(Thumbnail).removeAttr('srcset').removeAttr('height').removeAttr('width').css({'width': 'auto', 'height': 'auto', 'max-width': settings.thumbMaxWidth, 'max-height': settings.thumbMaxHeight}).wrap('<li class="wikipediaThumbnail"></li>').parent());  
     });
     //get right side table
     var rightTable = content.find('table.infobox, table.float-right').first();
     //init new table
     var newTable = $('<table class="wikipediaInfoTable"></table>');
-    //parse new table from right side table with cutFirstInfoTable and maxInfoTableRows
+    //parse new table from right side table with cutFirstInfoTable and settings.maxInfoTableRows
     $.each(rightTable.find('tr'), function(index, element) {
-      if(index>cutFirstInfoTableRows && index<(cutFirstInfoTableRows+maxInfoTableRows)) newTable.append(element);
+      if(index>settings.cutFirstInfoTableRows && index<(settings.cutFirstInfoTableRows+settings.maxInfoTableRows)) newTable.append(element);
     });
     //append new table to main container
     wikiContainer.append(newTable);
