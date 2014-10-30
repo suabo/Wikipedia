@@ -1,3 +1,5 @@
+## Version 2.0
+
 ## Usage
 
 1- Include the Javascript resources into you pages <head>
@@ -25,7 +27,7 @@
     Cut out the first rows of the information table. Default: `0`
 - **maxInfoTableRows**
     Set max count of information table rows. 0 means all. Default: `0`
-- **thumbMaxWidth **
+- **thumbMaxWidth**
     Set max Thumbnail width. Default: `'180px'`
 - **thumbMaxHeight**
     Set max Thumbnail height. Default: `'180px'`
@@ -37,13 +39,13 @@
     Show links in description. Default: `true`
 - **redirect**
     Redirect when only 1 link is found. Default: `true`
-- **elements.loader **
+- **elements.loader**
     Container the datavis placed in. Default: `'<div class="ajaxLoading">Loading...</div>'`
-- **elements.title **
+- **elements.title**
     Container the datavis placed in. Default: `['<div class="wikipediaTitle">', '</div>']`
-- **elements.description **
+- **elements.description**
     Container the datavis placed in. Default: `['<div class="wikipediaDescription">', '</div>']`
-- **elements.logo **
+- **elements.logo**
     Container the datavis placed in. Default: `['<div class="wikipediaLogo">', '</div>']`
 - **elements.gallery.parent**
     Container the datavis placed in. Default: `['<ul class="wikipediaThumbGallery">', '</ul>']`
