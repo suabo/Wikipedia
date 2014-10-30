@@ -11,7 +11,7 @@
 
 3- Add the Javascript that will populate the placeholder
      
-    $('#ContainerToLoad').WikipediaWidget('Page Title', [{ 'showTitle': true, 
+    $('#divRss').WikipediaWidget('Page Title', [{ 'showTitle': true, 
                                                            'maxThumbnails': 3, 
                                                            'cutFirstInfoTableRows': 4, 
                                                            'maxInfoTableRows': 8, 
