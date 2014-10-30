@@ -3,12 +3,14 @@ jQuery Plugin for Wikipedia
 
 ## Description
           
-jQuery Plugin zum einfachen nachladen von Daten aus Wikipedia über die Wikipedia API mittels JSON.
-Zum laden muss ein Wikipediaseitentitel übergeben werden. Über den zweiten Parameter können
-diverse Einstellungen für die Darstellung getroffen werden.
+jQuery plugin for easy download of data from Wikipedia about the Wikipedia API using JSON. To download a Wikipedia page a title needs to be passed. Various settings can be made about the second parameter.
 
-[Demo]http://support.suabo.de/opensource/jquery-plugin-wikipedia
-          
+Demo: http://support.suabo.de/opensource/jquery-plugin-wikipedia
+
+## Documentation
+Version 1.0
+Version 2.0
+
 ## Usage
 
 1- Include the Javascript resources into you pages <head>
@@ -51,5 +53,4 @@ diverse Einstellungen für die Darstellung getroffen werden.
     Set max Thumbnail height. Default: '180px'
 
 ## Demo
-
-[Demo]http://support.suabo.de/opensource/jquery-plugin-wikipedia
+http://support.suabo.de/opensource/jquery-plugin-wikipedia
