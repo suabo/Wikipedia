@@ -17,7 +17,7 @@
       showInfo: true,
       maxThumbnails: 0,
       cutFirstInfoTableRows: 0,
-      maxInfoTableRows:0,
+      maxInfoTableRows: 0,
       thumbMaxWidth : '180px',
       thumbMaxHeight: '180px',
       locale: 'nl',
@@ -25,10 +25,10 @@
       descriptionLinks: true,
       redirect: true,
       elements: {
-        loader : '<div class="ajaxLoading">Loading...</div>',
+        loader : '<div class="ajaxLoading col-lg-12 col-md-12 col-sm-12 col-xs-12">Loading...</div>',
         title : ['<div class="wikipediaTitle">', '</div>'],
-        description : ['<div class="wikipediaDescription">', '</div>'],
-        logo : ['<div class="wikipediaLogo">', '</div>'],
+        description : ['<div class="wikipediaDescription col-lg-10 col-md-10 col-sm-10 col-xs-10">', '</div>'],
+        logo : ['<div class="wikipediaLogo col-lg-2 col-md-2 col-sm-2 col-xs-2">', '</div>'],
         gallery: {
           parent: ['<ul class="wikipediaThumbGallery">', '</ul>'],
           child: ['<li class="wikipediaThumbnail">', '</li>'],
@@ -70,6 +70,7 @@
           //-- is there only 1 redirection?
           if ($(data).find('ul').first().find('li').length==1 && Wiki.settings.redirect) {
             var wikipediaPage = $(data).find('a').first().attr('href');
+            //-- extract page from link
             if (parsedata.parse.text["*"].substring(0,25) == '<div class="redirectMsg">') {
               wikipediaPage = wikipediaPage.split('title=');
               wikipediaPage = wikipediaPage[wikipediaPage.length-1].split('&');
@@ -139,9 +140,30 @@
       if (Wiki.settings.descriptionLinks) {
         $.each($(wikiContainer).find('.wikipediaDescription a'), function(index, element) {   
           var href = $(element).attr('href');
-          href = href.split('/');
-          href = 'javascript:$(\''+wikiContainer.selector+'\').WikipediaWidget(\''+href[href.length-1]+'\');';
-          $(element).attr('href', href);
+          console.log(element);
+          if(href.indexOf("#") >= 0){
+            //-- remove anchor
+            $(element).parent('li').remove();
+          } else {
+            //-- is the link like index.php?title=
+            if(href.indexOf("php") >= 0){
+              //-- check if page exist
+              if ($(element).hasClass('new')){
+                $(element).replaceWith($(element).text());
+              } else {
+                href = href.split('title=');
+                href = href[href.length-1].split('&');
+                href = href[0];
+              }
+            } else {
+              href = href.split('/');
+              href = href[href.length-1];
+            }
+            if (href) {
+              href = 'javascript:$(\''+wikiContainer.selector+'\').Wikipedia(\''+href+'\');';
+              $(element).attr('href', href);
+            }
+          }
 
         });      
       }
