@@ -1,2 +1,2 @@
-Development of Version 1.0.0 by
-Marcel Grolms
+Development of Version 1.0.0 by Marcel Grolms
+Development of Version 2.0.0 by Laurens Laman
