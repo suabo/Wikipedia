@@ -62,7 +62,7 @@
                 gallery:[],
                 info:[]
             };
-
+            
             $.getJSON('http://'+Wiki.settings.locale+'.wikipedia.org/w/api.php?action=parse&format=json&callback=?', {page:wikipediaPage, prop:'text|images', uselang: Wiki.settings.locale}, function(parsedata) {
                 //-- check if response returns error
                 if (typeof parsedata.error !== "undefined") {
@@ -136,6 +136,9 @@
         var wikiContainer = this;
         wikiContainer.html('');
         wikiContainer.append(Wiki.settings.elements.loader);
+        if (typeof options.locale !== "undefined" &&  options.locale.indexOf('_') > -1) {
+            options.locale = options.locale.substr(0, options.locale.length - (options.locale.indexOf('_')+1));
+        }
         Wikipedia.Get(wikipediaPage, options, function(){
             wikiContainer.html('');
             if (Wiki.settings.showTitle) {
