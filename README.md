@@ -10,5 +10,5 @@ Demo: http://support.suabo.de/opensource/jquery-plugin-wikipedia
 ## Documentation
 [Version 1.0](documentation/version%201.0.md)
 
-[Version 2.0.1](version%202.0.1.md#version-20)
+[Version 2.0.1](documentation/version%202.0.1.md#version-20)
 
