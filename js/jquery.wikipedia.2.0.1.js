@@ -1,5 +1,5 @@
 /* 
- *  jQuery Plugin - Wikipedia V2.0
+ *  jQuery Plugin - Wikipedia V2.0.1
  *  
  *  todo: add description here
  *  
