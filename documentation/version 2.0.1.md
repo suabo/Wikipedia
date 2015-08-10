@@ -1,11 +1,11 @@
-## Version 2.0
+## Version 2.0.1
 
 ## Usage
 
 1- Include the Javascript resources into you pages <head>
 
      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-     <script type="text/javascript" src="js/jquery.wikipedia.2.0.js"></script>
+     <script type="text/javascript" src="js/jquery.wikipedia.2.0.1.js"></script>
 
 2- Add a placeholder for the widget to your page
 
